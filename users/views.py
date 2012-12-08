@@ -8,3 +8,7 @@ def index(request):
     users = User.objects.all()
     context = {'users':users}
     return render(request, 'users/index.html', context)
+
+def detail(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    return render(request, 'users/detail.html',{'user':user})

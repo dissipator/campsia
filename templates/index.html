@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+        <h1>Life in college - simplified</h1>
+        <p class="lead">Manage all your data and details regarding your education from the comfort of your browser or mobile... from your home or your class. Wherever you go your data just follows you.</p>
+        <a class="btn btn-large btn-success" href="#">Sign up today</a>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h3 style="color:#5BB75B">The quick part<h3>
+          <h4>Pay mess bills from your ATM</h4>
+          <p>No more queues, challans, DDs,.. just use your ATM and campsia to pay your bill in seconds</p>
+
+          <h4>All your data at one place</h4>
+          <p>See your attendance reports, test scores, dues, upcoming activites,.. all at one place.. and keep track of yourself </p>
+
+          <h4>Requests simplified</h4>
+          <p>No more A4s for requests and applications.Send requests to Principal, Teachers, Department Heads,.. just from your browser and get replies quickly.</p>
+        </div>
+
+        <div class="span6">
+          <form action="user.html" class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-success" type="submit">Sign in</button>
+      </form>
+        </div>
+      </div>
+{% endblock %}
