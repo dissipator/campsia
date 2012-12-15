@@ -1,12 +1,14 @@
-{% extends "base.html" %}
+{% extends "users/base.html" %}
 {% block content %}
+
+
 <div class="span2 pull-left"><img class="thumbnail" src="http://placehold.it/220x230"></div>
 <div class="span7 clearfix pull-right">
-<h2 style="color:#0088cc">{{user.name}}</h2>
+<h2 style="color:#0088cc">{{users.name}}</h2>
 <dl>
-	<dt>College:</dt><dd> {{user.college}}</dd>
-	<dt>Email:</dt><dd> {{user.email}}</dd>
-	<dt>Type:</dt><dd> {{user.level}}</dd>
+	<dt>College:</dt><dd> {{users.college}}</dd>
+	<dt>Email:</dt><dd> {{users.email}}</dd>
+	<dt>Type:</dt><dd> {{users.level}}</dd>
 </dl>
 </div>
 <div style="clear:both"></div>

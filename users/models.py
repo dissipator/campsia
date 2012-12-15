@@ -3,19 +3,9 @@ import datetime
 from django.utils import timezone
 
 # Create your models here.
-class Base(models.Model):  
-    name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    phone = models.CharField(max_length=20)
-    address = models.CharField(max_length=200)
-        
-    class Meta:
-        abstract = True
-    
-class Student(Base):
-    
-    
-    
+class Level(models.Model):
+    name = models.CharField(max_length=200)
+
 class College(models.Model):
     name = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
