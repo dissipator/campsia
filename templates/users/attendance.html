@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+{% block content %}
+	<table class="table table-bordered">
+		<tr>
+			<th>Subject</th>
+			<th>Attendance %</th>
+		</tr>
+		{% for subject in subjects %}
+		
+		<tr>
+			<td>{{subject}}</td>
+			<td>1</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     
     url(r'^polls/',include('polls.urls', namespace='polls')),
     url(r'^users/',include('users.urls', namespace='users')),
+    url(r'^users/messages/', include('messages.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     

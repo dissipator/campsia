@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% load url from future %}
+{% block sidebar %}
+	<ul class="nav nav-tabs nav-stacked">
+		<li class="nav-header">Messages</li>
+		 <li><a href="{% url 'messages.views.compose' %}"><i class="icon-envelope"></i>  Compose</a></li>
+		 <li><a href="{% url 'messages.views.inbox' %}"><i class="icon-inbox"></i>  Inbox</a></li>
+		 <li><a href="{% url 'messages.views.outbox' %}"><i class="icon-arrow-up"></i>  Sent</a></li>
+		 <li><a href="{% url 'messages.views.trash' %}"><i class="icon-trash"></i>  Trash</a></li>
+
+	</ul>
+{% endblock %}

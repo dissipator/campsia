@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% block content %}
+	<div class="accordion" id="accordion2">
+		
+	{% for notification in notifications %}
+		
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{forloop.counter}}">
+		        {{notification}}
+		      </a>
+		    </div>
+		    <div id="{{forloop.counter}}" class="accordion-body collapse">
+		      <div class="accordion-inner">
+		        Anim pariatur cliche...
+		      </div>
+		    </div>
+		  </div>
+		  	
+ 
+  {% endfor %}
+  </div>
+{% endblock %}

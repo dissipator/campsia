@@ -96,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'polls',
     'users',
+    #'messages',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -156,3 +157,9 @@ LOGGING = {
 }
 # URL of the login page.
 LOGIN_URL = '/login/'
+
+#context processors
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'messages.context_processors.inbox',
+    'django.contrib.auth.context_processors.auth',
+)

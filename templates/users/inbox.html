@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+{% block content %}
+	<table class="table ">
+		<tr>
+			<th>From</th>
+			<th>Subject</th>
+		</tr>
+		{% for message in messages %}
+		
+		<tr>
+			<td>{{message.from}}</td>
+			<td><a href="#">{{message.subject}}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

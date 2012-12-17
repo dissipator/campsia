@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+{% block content %}
+	<table class="table">
+		<tr>
+			<th>Type</th>
+			<th>Amount</th>
+		</tr>
+		{% for due in dues %}
+		
+		<tr>
+			<td>{{due}}</td>
+			<td>2344</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

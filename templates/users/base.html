@@ -42,24 +42,48 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="{% url 'users:index' %}">Campsia</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
+           <!--  <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
-            </ul>
+           </ul> -->
+           
             <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">{{user.username}}</a>
+              <a href="{% url 'users:index' %}" class="navbar-link">{{user.username}}</a>
               &nbsp;<a class="navbar-link" href="/logout/">Logout</a>
             </p>
+             <form class="navbar-search pull-right" style="margin-right: 10px;">
+  <input type="text" class="search-query" placeholder="Search">
+</form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container">
-		{% block content %} {% endblock %}
+    	
+    	
+    	<div class="span2 pull-left">
+    		
+    		{% block sidebar %}{% endblock %}
+    		<ul class="nav nav-pills nav-stacked">
+    		  <li><a href="{% url 'users:index' %}"><i class="icon-home"></i> Dashboard</a></li>
+			  <li><a href="{% url 'users:notification' %}"><i class="icon-eye-open"></i> Notifications</a></li>
+			  <li><a href="{% url 'users:dues' %}"><i class="icon-th-list"></i> Bills &amp; Dues</a></li>
+			  <li><a href="{% url 'users:attendance' %}"><i class="icon-certificate"></i> Attendance</a></li>
+			  <li><a href="{% url 'messages.views.inbox' %}"><i class="icon-envelope"></i> Inbox({{ messages_inbox_count }})</a></li>
+			 
+			  
+			</ul>
+    	</div>
+    	<div class="span9 pull-right">
+    		{% block content %} {% endblock %}
+    	</div>
+    	
+	
+			
     </div> <!-- /container -->
 
     <!-- Le javascript
