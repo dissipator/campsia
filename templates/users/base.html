@@ -1,5 +1,6 @@
 {% load url from future %}
 {% load static %}
+
 {% get_static_prefix as STATIC_PREFIX %}
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +52,7 @@
            </ul> -->
            
             <p class="navbar-text pull-right">
+            <img src="http://placehold.it/30x30" class="img-rounded"/>
               <a href="{% url 'users:index' %}" class="navbar-link">{{user.username}}</a>
               &nbsp;<a class="navbar-link" href="/logout/">Logout</a>
             </p>

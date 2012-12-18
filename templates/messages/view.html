@@ -5,14 +5,15 @@
 <p class="lead pull-left">{{ message.subject }}</p><p class="pull-right">{{ message.sent_at|date:_("DATETIME_FORMAT")}}</p>
 <div style="clear:both"></div>
 <p class="pull-left">
+	<a class="btn"  title="Back to Inbox" href="{% url messages_inbox %}"><i class=" icon-circle-arrow-left"></i></a>
 	{% ifequal message.recipient.pk user.pk %}
 		<a  title="Reply" class="btn" href="{% url messages_reply message.id %}"><i class="icon-share"></i></a>
-		<a  title="Forward" class="btn" href="{% url messages_reply message.id %}"><i class="icon-retweet"></i></a>
+		<a  title="Forward" class="btn" href="{% url messages_forward message.id %}"><i class="icon-retweet"></i></a>
 	{% endifequal %}
 	<a class="btn"  title="delete" href="{% url messages_delete message.id %}"><i class="icon-trash"></i></a>
 </p>
 <p class="pull-right">
-<img src="http://placehold.it/30x30" />  {{ message.sender }}
+<img src="http://placehold.it/30x30" class="img-rounded"/>  {{ message.sender }}
 </p>
 <div style="clear:both"></div>
 <hr>
