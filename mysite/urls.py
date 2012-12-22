@@ -14,12 +14,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='publicIndex'),
     # Login / logout.
-    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^login/$', custom_login, name='login_page'),
     url(r'^logout/$', logout_page),
-    
     url(r'^polls/',include('polls.urls', namespace='polls')),
     url(r'^users/',include('users.urls', namespace='users')),
     url(r'^users/messages/', include('messages.urls')),
+    url(r'^xmlrpc$', 'rpc4django.views.serve_rpc_request'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

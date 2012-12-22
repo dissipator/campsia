@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
+from rpc4django import rpcmethod
 
 from users.models import User
 from django.contrib.auth.decorators import login_required
@@ -15,7 +16,10 @@ def detail(request, user_id):
 @login_required
 def index(request):
     current_user = request.user
-    return render(request, 'users/dashboard.html',{'cuser':current_user})
+    dues = total_dues(current_user)
+    attendace = 78
+    status = {'dues':dues,'attendance':attendance }
+    return render(request, 'users/dashboard.html',{'cuser':current_user,'dues':dues})
     
 @login_required
 def attendance(request):
@@ -43,12 +47,6 @@ def dues(request):
     dues = get_dues(current_user)
     return render(request, 'users/dues.html',{'dues':dues})
 
-@login_required
-def inbox(request):
-    current_user = request.user
-    messages = get_messages(current_user)
-    return render(request, 'users/inbox.html',{'messages':messages})
-    
 def get_subjects(user):
     '''
     Finds all the subjects taken by the user. 
@@ -87,6 +85,14 @@ def get_dues(user):
     dues = ['Mess Bill','Library Fines','Tution Fees','Others']
     return dues
 
-def get_messages(user):
-    messages = [{'from':'Jezeel','subject':'hello','read':False},{'from':'Tony','subject':'hi','read':True}]
-    return messages
+def total_dues(user):
+    dues = 123
+    return dues
+
+@rpcmethod(name='rpc4django.restricted', signature=['string'], login_required=False)
+def restricted():
+    return "Successfully called a method for logged in users only"
+
+@rpcmethod(name='calc.multiply', signature=['int','int','int'], login_required=False)
+def multiply(a,b):
+    return a*b

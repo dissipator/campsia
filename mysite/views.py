@@ -3,19 +3,17 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth.views import login
 
 
 def index(request):
     """
         Provides the basic homapage for all those who are not logged in
     """
-    return render_to_response('index.html')
-
-def login(request):
-    """
-        Area for users to login
-    """
-    return render_to_response('login.html')
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/users/')
+    else:
+        return render_to_response('index.html')
 
 def logout_page(request):
     """
@@ -23,3 +21,9 @@ def logout_page(request):
     """
     logout(request)
     return HttpResponseRedirect('/')
+
+def custom_login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/users/')
+    else:
+        return login(request)

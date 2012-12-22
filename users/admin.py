@@ -10,6 +10,4 @@ class CollegeAdmin(admin.ModelAdmin):
     list_display = ['name','city','state']
     list_filter = ['city']
     search_fields = ['name']
-admin.site.register(User,UserAdmin)
-admin.site.register(Level)
 admin.site.register(College,CollegeAdmin)

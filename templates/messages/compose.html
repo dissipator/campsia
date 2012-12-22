@@ -9,7 +9,7 @@
 {{ form.recipient|add_class:"input-block-level"|attr:"placeholder:To"}}
 {{ form.subject|add_class:"input-block-level"|attr:"placeholder:Subject"}}
 {{ form.body|add_class:"input-block-level"|attr:"placeholder:Message"}}
-<input type="submit" value="{% trans "Send" %} &raquo;"/>
+<input type="submit" class="btn btn-primary pull-right"  value="{% trans "Send" %} &raquo;"/>
 </form>
 
 {% endblock %}

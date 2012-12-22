@@ -70,17 +70,23 @@
     	<div class="span2 pull-left">
     		
     		{% block sidebar %}{% endblock %}
-    		<ul class="nav nav-pills nav-stacked">
-    		  <li><a href="{% url 'users:index' %}"><i class="icon-home"></i> Dashboard</a></li>
+    		<div class="tabbable tabs-left">
+    		<ul class="nav nav-tabs ">
+    		  <li class="active"><a href="{% url 'users:index' %}"><i class="icon-home"></i> Dashboard</a></li>
 			  <li><a href="{% url 'users:notification' %}"><i class="icon-eye-open"></i> Notifications</a></li>
 			  <li><a href="{% url 'users:dues' %}"><i class="icon-th-list"></i> Bills &amp; Dues</a></li>
 			  <li><a href="{% url 'users:attendance' %}"><i class="icon-certificate"></i> Attendance</a></li>
-			  <li><a href="{% url 'messages.views.inbox' %}"><i class="icon-envelope"></i> Inbox({{ messages_inbox_count }})</a></li>
+			  <li><a href="{% url 'messages.views.inbox' %}"><i class="icon-envelope"></i> Messages
+			  	{% if messages_inbox_count != 0 %}
+			  	<span class="badge badge-info">{{messages_inbox_count}}</span>
+			  	{% endif %}
+			  	</a></li>
 			 
 			  
 			</ul>
+			</div>
     	</div>
-    	<div class="span9 pull-right">
+    	<div class="span9">
     		{% block content %} {% endblock %}
     	</div>
     	
@@ -104,6 +110,7 @@
     <script src="{{STATIC_PREFIX }}/js/bootstrap-collapse.js"></script>
     <script src="{{STATIC_PREFIX }}/js/bootstrap-carousel.js"></script>
     <script src="{{STATIC_PREFIX }}/js/bootstrap-typeahead.js"></script>
-
+	{% block javascript %}
+	{% endblock %}
   </body>
 </html>

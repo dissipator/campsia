@@ -1,5 +1,65 @@
 {% extends "users/base.html" %}
-
+{% load url from future %}
 {% block content %}
-	<p class="lead">Hello, {{cuser.first_name}}</p>
+			
+          <div class="span2">
+              <h3>Attendance</h3><h1 style="color:#00aeef">{{dues}}%</h1>
+          </div>
+          <div class="span2">
+              <h3>Dues</h3><h1 style="color:#00aeef">{{status.dues}}</h1>
+          </div>    
+          <div class="span2">
+              <h3>Mess Bill</h3><h1 style="color:#00aeef">$2300</h1>
+          </div>  
+          <div class="span2">
+              <h3>Reputation</h3><h1 style="color:#00aeef">8.5/10</h1>
+          </div>  
+     
+      <div style="margin-bottom:10%;clear:both" ></div>
+          <div class="span4">
+            <p class="lead"><a href="{% url 'users:attendance' %}">Attendance Reports</a></p>
+            <div class="progress progress-info progress-striped">
+             <div class="bar" style="width: 50%">Engineering Physics</div>
+            </div>
+            <div class="progress progress-success progress-striped">
+              <div class="bar" style="width: 70%">Engineering Mathemetics</div>
+            </div>
+            <div class="progress progress-warning progress-striped">
+              <div class="bar" style="width: 60%">Engineering Chemistry</div>
+            </div>
+            <div class="progress progress-danger progress-striped">
+              <div class="bar" style="width: 80%">Engineering Mecjhanics</div>
+            </div>
+          </div>
+          <div class="span4">
+              <p class="lead"> <a href="#">Bills & Dues</a> </p>
+             <table class="table table-bordered table-hover">
+             <tbody>
+                <tr>
+                  <td>Mess Dues</td>
+                  <td>$230</td>
+                </tr>
+                <tr>
+                  <td>Library Dues</td>
+                  <td>$230</td>
+                </tr>
+                <tr>
+                  <td>Lab Dues</td>
+                  <td>$230</td>
+                </tr>
+                <tr>
+                  <td>Other Dues</td>
+                  <td>$230</td>
+                </tr>
+              </tbody>
+            </table>
+            <a class="btn btn-success btn-small btn-block" href="#">Pay All</a>
+          </div>  
+          
+      
+      
+      <!-- Example row of columns -->
+      
+      <hr>
 {% endblock %}
+

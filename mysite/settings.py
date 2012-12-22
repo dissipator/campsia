@@ -97,6 +97,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     # Must be enabled for RPC4Django authenticated method calls
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # Required for RPC4Django authenticated method calls
+    # Requires Django 1.1+
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -122,6 +128,7 @@ INSTALLED_APPS = (
     'users',
     'messages',
     'widget_tweaks',
+    'notification',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -163,4 +170,7 @@ LOGIN_URL = '/login/'
 TEMPLATE_CONTEXT_PROCESSORS = (
     'messages.context_processors.inbox',
     'django.contrib.auth.context_processors.auth',
+)
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.RemoteUserBackend',
 )

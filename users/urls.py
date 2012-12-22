@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     url(r'^attendance/$', views.attendance, name='attendance'),
     url(r'^notifications/$', views.notifications, name='notification'),
     url(r'^dues/$', views.dues, name='dues'),
-    url(r'^inbox/$', views.inbox, name='inbox'),
+    #url(r'^inbox/$', views.inbox, name='inbox'),
 )
