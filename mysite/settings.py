@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'polls',
     'users',
-    'messages',
+    #'messages',
     'widget_tweaks',
     'notification',
     # Uncomment the next line to enable the admin:
