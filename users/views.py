@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-from rpc4django import rpcmethod
 
 from users.models import User
 from django.contrib.auth.decorators import login_required
@@ -88,11 +87,3 @@ def get_dues(user):
 def total_dues(user):
     dues = 123
     return dues
-
-@rpcmethod(name='rpc4django.restricted', signature=['string'], login_required=False)
-def restricted():
-    return "Successfully called a method for logged in users only"
-
-@rpcmethod(name='calc.multiply', signature=['int','int','int'], login_required=False)
-def multiply(a,b):
-    return a*b

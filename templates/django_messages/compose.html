@@ -1,0 +1,15 @@
+{% extends "django_messages/base.html" %} 
+{% load i18n %} 
+{% load widget_tweaks %}
+{% block content %} 
+<p class="lead">{% trans "Compose Message"%}</>
+<form action="" method="post">
+{% csrf_token %}
+
+{{ form.recipient|add_class:"input-block-level"|attr:"placeholder:To"}}
+{{ form.subject|add_class:"input-block-level"|attr:"placeholder:Subject"}}
+{{ form.body|add_class:"input-block-level"|attr:"placeholder:Message"}}
+<input type="submit" class="btn btn-primary pull-right"  value="{% trans "Send" %} &raquo;"/>
+</form>
+
+{% endblock %}

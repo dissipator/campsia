@@ -126,9 +126,9 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'polls',
     'users',
-    #'messages',
+    'django_messages',
     'widget_tweaks',
-    #'notification',
+    'notification',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -167,10 +167,3 @@ LOGGING = {
 LOGIN_URL = '/login/'
 
 #context processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'messages.context_processors.inbox',
-    'django.contrib.auth.context_processors.auth',
-)
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.RemoteUserBackend',
-)
