@@ -166,4 +166,13 @@ LOGGING = {
 # URL of the login page.
 LOGIN_URL = '/login/'
 
-#context processors
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    #Required for Django Messages Count
+    'django_messages.context_processors.inbox',
+    'django.contrib.auth.context_processors.auth',
+)

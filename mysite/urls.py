@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^polls/',include('polls.urls', namespace='polls')),
     url(r'^users/',include('users.urls', namespace='users')),
     url(r'^users/messages/', include('django_messages.urls')),
+    url(r'^notifications/', include('notification.urls')),
     #url(r'^xmlrpc$', 'rpc4django.views.serve_rpc_request'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
