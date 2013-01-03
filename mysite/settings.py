@@ -105,6 +105,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.RemoteUserMiddleware',
 )
 
+# Required for RPC4Django authenticated method calls
+# Requires Django 1.1+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 ROOT_URLCONF = 'mysite.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -129,6 +136,8 @@ INSTALLED_APPS = (
     'django_messages',
     'widget_tweaks',
     'notification',
+    'rpc4django',
+    'remote',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

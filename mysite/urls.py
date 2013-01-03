@@ -3,14 +3,13 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from mysite import views
 from mysite.views import *
-
-
+from jsonrpc import jsonrpc_site
+from remote.views import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'mysite.views.home', name='home'),
-    # url(r'^mysite/', include('mysite.foo.urls')),
+    #for JSON RPC
+    url(r'^json/$', jsonrpc_site.dispatch, name='jsonrpc_mountpoint'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='publicIndex'),
     # Login / logout.
