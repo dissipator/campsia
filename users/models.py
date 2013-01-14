@@ -24,12 +24,13 @@ class UserProfile(models.Model):
     #students division ID , later use this fetch the attendance through XMLRPC
     division_id = models.IntegerField(null=True,blank=True)
     #department
-    department_id = models.IntegerField(null=True,blank=True)
     #college's ID, fetch other details through ID 
     college_id = models.IntegerField(null=True,blank=True)
     
     def __unicode__(self):
         return self.user
+    
+class 
     
     
 

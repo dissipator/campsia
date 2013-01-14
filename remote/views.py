@@ -1,10 +1,9 @@
 # Create your views here.
 from users.models import User
+from rpc4django import rpcmethod
 
-#for RPC functions
-from jsonrpc import jsonrpc_method
 
-@jsonrpc_method('user.create')
+@rpcmethod(name='user.create', signature=['string','string','string','object'])
 def remote_create_user(name,email,password):
     ''' 
     Creates a user from the RPC
@@ -23,7 +22,7 @@ def remote_create_user(name,email,password):
     return user
 
     
-@jsonrpc_method('rpc.test')
+@rpcmethod(name='hello.world', signature=['string'])
 def rpctest():
     return "Hello World"
 
